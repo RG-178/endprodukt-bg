@@ -1,0 +1,63 @@
+:root{
+    --bg: #0f1115;
+    --panel: #151924;
+    --panel-2: #1b2030;
+    --text: #e6e9ef;
+    --muted: #a8b0bf;
+    --focus: #7aa2ff;
+    --ok: #2ea043;
+    --cancel: #8b949e;
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+    --radius: 12px;
+    --gap: 12px;
+}
+html,body{ background:var(--bg); color:var(--text); font:14px/1.35 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;}
+.demo{
+    display:grid; place-items:center; min-height:100%;
+}
+.card{
+    background:var(--panel);
+    border:1px solid #21283a;
+    border-radius:var(--radius);
+    padding:22px;
+    box-shadow:var(--shadow);
+    width:min(520px, 92vw);
+}
+.row{ display:flex; gap:var(--gap); align-items:center; }
+.row + .row{ margin-top:var(--gap); }
+.grow{ flex:1; }
+button{
+    appearance:none; border:1px solid #2a3147; background:var(--panel-2); color:var(--text);
+    padding:10px 14px; border-radius:10px; cursor:pointer;
+}
+button:hover{ filter:brightness(1.08); }
+button:focus{ outline:2px solid var(--focus); outline-offset:2px; }
+.link{ color:#9dc1ff; text-decoration:none; border-bottom:1px dashed #3b4f7a; }
+/* Prompt overlay */
+.prompt__backdrop{
+    position:fixed; inset:0; background:rgba(4,6,10,.6);
+    display:none; align-items:center; justify-content:center; z-index:9999;
+}
+.prompt__panel{
+    width:min(480px, 92vw);
+    background:var(--panel);
+    border:1px solid #232a3f;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:16px;
+}
+.prompt__title{ margin:0 0 6px; font-weight:600; }
+.prompt__msg{ margin:0 0 12px; color:var(--muted); font-size:13px; }
+.prompt__input{
+    width:100%; padding:10px 12px; border-radius:10px; border:1px solid #2a3147;
+    background:var(--panel-2); color:var(--text);
+}
+.prompt__input:focus{ outline:2px solid var(--focus); outline-offset:2px; border-color:transparent; }
+.prompt__actions{ display:flex; gap:10px; justify-content:flex-end; margin-top:12px; }
+.prompt__ok{ border-color:#234d31; background:#173222; }
+.prompt__ok:hover{ filter:brightness(1.1); }
+.prompt__ok:focus{ outline-color:#48c36a; }
+.prompt__cancel{ border-color:#3a3f4d; background:#242a3a; color:#c2c8d2; }
+/* show */
+.prompt__backdrop[aria-hidden="false"]{ display:flex; }
+main { box-shadow: var(--shadow); }

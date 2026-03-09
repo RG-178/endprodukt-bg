@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="/assets/logo.png" type="image/x-icon">
+    <title class="title">End-Projekt</title>
+    <script src="/assets/p5.js"></script>
+    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/end-projekt.css">
+</head>
+<body>
+    <div class="page ep-page">
+        <header class="topbar">
+            <a class="back-link" href="/">Überblick</a>
+            <span class="topbar__label">End-Projekt</span>
+        </header>
+
+        <header class="hero">
+            <div class="hero__text">
+                <p class="eyebrow">End-Projekt</p>
+                <h1 class="title">P-1291970663</h1>
+                <p class="subtitle">Alle 10 Sekunden wird aus Audio ein Key erzeugt. Jeder neue Key triggert ein neues Bild.</p>
+            </div>
+            <div class="seed">
+                <span class="seed__label">Seed</span>
+                <span class="seed__value" id="seed-value">1291970663</span>
+            </div>
+        </header>
+
+        <main class="content">
+            <section class="canvas-card" id="presentation-root">
+                <div class="ep-status">
+                    <div class="ep-pill">
+                        <span class="ep-dot" id="mic-dot"></span>
+                        <span id="mic-status">booting...</span>
+                    </div>
+                    <div class="ep-pill">
+                        <span class="ep-label">Key</span>
+                        <span class="ep-mono" id="mic-key">-</span>
+                    </div>
+                    <div class="ep-pill">
+                        <span class="ep-label">Letztes Update</span>
+                        <span class="ep-mono" id="last-update">-</span>
+                    </div>
+                </div>
+
+                <div class="canvas-frame ep-frame" id="canvas-wrap"></div>
+                <div class="canvas-hint">Taste S speichert PNG. Ctrl+Shift+F oder Alt+Enter toggelt Fullscreen.</div>
+            </section>
+
+            <aside class="controls-card">
+                <h2 class="controls-title">Steuerung</h2>
+                <div class="controls">
+                    <button class="btn" id="btn-enable-mic">Mikrofon aktivieren</button>
+                    <button class="btn btn--ghost" id="btn-save">Bild speichern</button>
+                    <button class="btn btn--ghost" id="btn-fullscreen">Fullscreen anzeigen</button>
+                </div>
+                <div class="data-grid">
+                    <div class="data-card">
+                        Intervall
+                        <br>
+                        <code>10s</code>
+                    </div>
+                </div>
+                <div class="note">Wenn der Browser blockiert, auf "Mikrofon aktivieren" klicken und den Zugriff erlauben.</div>
+            </aside>
+        </main>
+    </div>
+
+    <div class="ep-overlay" id="mic-overlay" aria-hidden="true">
+        <div class="ep-overlay__panel" role="dialog" aria-modal="true" aria-labelledby="mic-overlay-title">
+            <h3 class="ep-overlay__title" id="mic-overlay-title">Mikrofon aktivieren</h3>
+            <p class="ep-overlay__text">Der Browser braucht eine Bestätigung für den Mikrofonzugriff. Nach dem Klick startet die Erkennung automatisch.</p>
+            <button class="btn" id="mic-overlay-btn">Click to enable mic</button>
+            <button class="btn btn--ghost" id="mic-overlay-cancel">Schliessen</button>
+        </div>
+    </div>
+
+    <script src="/assets/end-projekt.js"></script>
+</body>
+</html>
